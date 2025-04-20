@@ -1,0 +1,26 @@
+name: Deploy to Odoo Server
+
+on:
+  push:
+    branches:
+      - main  # Cambia esta línea si usas otra rama como `develop`
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Deploy to Odoo Server
+      uses: appleboy/ssh-action@v0.1.0
+      with:
+        host: ${{ secrets.SSH_HOST }}  # IP de tu servidor
+        username: ${{ secrets.SSH_USER }}  # Usuario con acceso SSH
+        key: ${{ secrets.SSH_KEY }}  # Tu clave SSH privada
+        port: 22  # El puerto SSH
+        script: |
+          cd /var/lib/docker/volumes/odoo_stack_odoo_data/_data/addons
+          git pull origin main
+          sudo systemctl restart odoo  # O reinicia el servicio Odoo según tu configuración
