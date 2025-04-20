@@ -1,16 +1,21 @@
-
 <odoo>
-    <template id="custom_login_template" inherit_id="web.login">
-        <!-- Reemplazar el logo -->
-        <xpath expr="//div[@class='oe_login_logo']" position="replace">
-            <div class="oe_login_logo">
-                <img src="/custom_login_theme/static/src/img/logo_custom.png"/>
+    <template id="custom_login_template" inherit_id="web.login_layout">
+        <!-- Aquí puedes agregar el diseño personalizado -->
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div class="container custom-login-container">
+                <h2>Bienvenido a mi aplicación</h2>
+                <form method="post" action="/web/login">
+                    <div class="form-group">
+                        <label for="login">Usuario:</label>
+                        <input type="text" id="login" name="login" class="form-control" placeholder="Tu usuario" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Tu contraseña" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                </form>
             </div>
-        </xpath>
-
-        <!-- Agregar título arriba del formulario -->
-        <xpath expr="//form" position="before">
-            <h2 class="custom-login-title">Accede a tu cuenta</h2>
         </xpath>
     </template>
 </odoo>
