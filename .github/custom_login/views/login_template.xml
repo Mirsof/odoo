@@ -1,0 +1,16 @@
+
+<odoo>
+    <template id="custom_login_template" inherit_id="web.login">
+        <!-- Reemplazar el logo -->
+        <xpath expr="//div[@class='oe_login_logo']" position="replace">
+            <div class="oe_login_logo">
+                <img src="/custom_login_theme/static/src/img/logo_custom.png"/>
+            </div>
+        </xpath>
+
+        <!-- Agregar título arriba del formulario -->
+        <xpath expr="//form" position="before">
+            <h2 class="custom-login-title">Accede a tu cuenta</h2>
+        </xpath>
+    </template>
+</odoo>
