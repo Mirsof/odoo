@@ -28,5 +28,5 @@ jobs:
         script: |
           cd /var/lib/docker/volumes/odoo_stack_odoo_data/_data/addons
           git pull origin main
-          docker restart odoo_stack-odoo-1
+          sudo docker restart odoo_stack-odoo-1
 
