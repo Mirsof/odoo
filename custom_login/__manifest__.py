@@ -1,18 +1,13 @@
-
 {
-    'name': 'Custom Login Theme',
+    'name': 'Custom Login Odoo',
     'version': '1.0',
-    'category': 'Theme',
-    'summary': 'Personaliza el diseño de la pantalla de login',
-    'depends': ['web'],
+    'category': 'Custom',
+    'description': 'Modificación del login para agregar un texto personalizado.',
+    'author': 'Tu Nombre',
+    'depends': ['web'],  # Dependemos del módulo web para poder personalizar el login
     'data': [
-        'views/login_template.xml',
+        'views/login_template.xml',  # El archivo XML con la plantilla modificada
     ],
-    'assets': {
-        'web.assets_frontend': [
-            'custom_login_theme/static/src/css/login_style.css',
-        ],
-    },
     'installable': True,
     'auto_install': False,
 }
